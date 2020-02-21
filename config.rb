@@ -72,3 +72,10 @@ configure :build do
 end
 
 activate :syntax
+
+
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.branch = 'hamburg'
+  deploy.build_before = true
+end
