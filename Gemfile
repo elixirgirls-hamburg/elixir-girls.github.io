@@ -17,3 +17,5 @@ gem "therubyracer" #Less dependency
 gem "less"
 
 gem "middleman-syntax"
+
+gem "middleman-deploy"
