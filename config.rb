@@ -76,6 +76,7 @@ activate :syntax
 
 activate :deploy do |deploy|
   deploy.method = :git
-  deploy.branch = 'hamburg'
+  deploy.remote = 'git@github.com:elixirgirls-hamburg/elixirgirls-hamburg.github.io.git'
+  deploy.branch = 'master'
   deploy.build_before = true
 end
