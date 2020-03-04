@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Always force latest IE rendering engine or request Chrome Frame -->
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Elixir Girls Guides Slackir App adding persistence</title>
+
+    <link href="/stylesheets/normalize.css" rel="stylesheet" /><link href="/stylesheets/all.css" rel="stylesheet" />
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Elixir Girls website">
+    <meta name="author" content="Cath Jones">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Elixir Girls" />
+    <meta property="og:type" content="event" />
+    <meta property="og:url" content="http://elixirgirls.com" />
+    <meta property="og:image" content="http://elixirgirls.com/img/header.jpg" />
+    <meta property="og:description" content="Our aim is to make technology more approachable by creating a fun and friendly environment for people to come together and learn about Elixir, Phoenix and Functional Programming" />
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="/stylesheets/creative.css" rel="stylesheet">
+    <link href="/stylesheets/highlighting.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+  <body class="guides guides_persistence">
+      <nav id="mainNav" class="navbar navbar-default navbar-fixed-top guide-nav-bar">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="/#page-top">Elixir Girls</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="/#about">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#events">Events</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/guides/">Guides</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#sponsors">Sponsors</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="/#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+
+  <div id="wrapper">
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Elixir Girls Guides</a>
+    </div>
+    <!-- /.navbar-header -->
+
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav">
+            <ul class="nav" id="side-menu nav">
+                <li>
+                    <a id="dropdown-menu" class="installation" href="#">Installation</a>
+                    <ul id="installation" class="nav nav-second-level">
+                      <li>
+                          <a href="/install-guides/mac.html">Mac</a>
+                      </li>
+                      <li>
+                          <a href="/install-guides/windows.html">Windows</a>
+                      </li>
+                      <li>
+                          <a href="/install-guides/linux.html">Linux</a>
+                      </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/install-guides/dev-tools.html">Additional Tools</a>
+                </li>
+                <li>
+                  <a href="/guides/elixir-beginners-guide.html">Beginner's Guide</a>
+                </li>
+                <li>
+                    <a id="dropdown-menu" class="app-basic" href="#">Slackir App (Basic)</a>
+                    <ul id="app-basic" class="nav nav-second-level">
+                        <li>
+                            <a href="/guides/slackir.html">1. Setting up</a>
+                        </li>
+                        <li>
+                            <a href="/guides/channels.html">2. Channels</a>
+                        </li>
+                        <li>
+                            <a href="/guides/persistence.html">3. Persistence (save)</a>
+                        </li>
+                        <li>
+                            <a href="/guides/retrieve_message_history.html">4. Persistence (fetch)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="dropdown-menu" class="app-advanced" href="#">Slackir App (Advanced)</a>
+                    <ul id="app-advanced" class="nav nav-second-level">
+                    <li>
+                        <a href="/guides/disappearing_messages_ets.html">5. Disappearing messages - ETS</a>
+                    </li>
+                    <li>
+                        <a href="#">6. Expiring messages - GenServers (comming soon)</a>
+                    </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/guides/version-control-git.html">Version Control (Git)</a>
+                </li>
+                <li>
+                    <a href="/guides/deploy-on-heroku.html">Deploy on Heroku</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+</nav>
+
+    <div id="page-wrapper">
+      <h1>Adding Persistence to Slackir</h1>
+<p>So now we have a basic chat app but once our session is closed all of our messages are lost. If we were able to create, read, update and delete from a database we would be able to maintain a history of messages or have persistence across our application.</p>
+
+<h2>Creating our Database</h2>
+
+<p>First, we’ll create a migration and some code to handle persistence. Migrations are pieces of code that create or change database columns. In Phoenix, we can invoke <code>mix phx.gen.context</code> from the terminal to generate a context with functions, schema and migration:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>mix phx.gen.context Conversations Message messages name:string message:string
+</code></pre></div>
+<p>Explanation on that command:</p>
+<ul>
+  <li><b>Context: </b><code>Conversations</code> - The context is an Elixir module that serves as an boundary for the given
+resources like messages. A context often holds many related resources.</li>
+  <li><b>Schema: </b><code>Message</code> - The schema is responsible for mapping the database fields into an Elixir struct.</li>
+  <li><b>Schema table: </b><code>messages</code> - The schema table is just a schema plural name for table in database.</li>
+  <li><b>Fields </b><code>name:string</code> and <code>message:string</code>- The fields are columns in database table where <code>message</code> is a filed name and <code>string</code> is field type in <code>message:string</code>.</li>
+</ul>
+
+<p> More on DB types you can find <a href="https://hexdocs.pm/ecto/Ecto.Schema.html#module-primitive-types" class="inline-link" target="_blank">here</a>.
+
+<p>Then run the migration:</p>
+
+<div class="highlight"><pre class="highlight shell"><code><span class="nv">$ </span>mix ecto.migrate
+</code></pre></div>
+<h2>Creating our messages in the Database</h2>
+<p>Next, we need to save the messages as they come in. If you are not familiar with programming this is create in the CRUD app methodology. In <code>lib/slackir_web/channels/random_channel.ex</code>, we can add a call to do it, so the <code>handle_in</code> function looks like this:</p>
+
+<div class="highlight"><pre class="highlight elixir"><code><span class="k">def</span> <span class="n">handle_in</span><span class="p">(</span><span class="sd">"</span><span class="s2">shout"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">socket</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">Slackir</span><span class="o">.</span><span class="no">Conversations</span><span class="o">.</span><span class="n">create_message</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+  <span class="n">broadcast</span> <span class="n">socket</span><span class="p">,</span> <span class="sd">"</span><span class="s2">shout"</span><span class="p">,</span> <span class="n">payload</span>
+  <span class="p">{</span><span class="ss">:noreply</span><span class="p">,</span> <span class="n">socket</span><span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2>Refactor</h2>
+<p>The above code is alright, but if we want to scale our application we will start to have a problem as all the saves to the database will slow down the request cycle and keep us from handling the traffic efficiently. Elixir has some built in tools for dealing with exactly this situation. Specifically, <code>Kernel.spawn</code>, which takes a module, a function, and arguments to pass to the function. So we’ll update our handler, and add a function:</p>
+
+<div class="highlight"><pre class="highlight elixir"><code><span class="k">def</span> <span class="n">handle_in</span><span class="p">(</span><span class="sd">"</span><span class="s2">shout"</span><span class="p">,</span> <span class="n">payload</span><span class="p">,</span> <span class="n">socket</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">spawn</span><span class="p">(</span><span class="no">Slackir</span><span class="o">.</span><span class="no">Conversations</span><span class="p">,</span> <span class="ss">:create_message</span><span class="p">,</span> <span class="p">[</span><span class="n">payload</span><span class="p">])</span>
+  <span class="n">broadcast!</span> <span class="n">socket</span><span class="p">,</span> <span class="sd">"</span><span class="s2">shout"</span><span class="p">,</span> <span class="n">payload</span>
+  <span class="p">{</span><span class="ss">:noreply</span><span class="p">,</span> <span class="n">socket</span><span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div><p>What this does is spawn an elixir process to do the save, outside of the request cycle. Since we don’t need to see the results of the save to broadcast the message, there’s no reason to wait for it.</p>
+
+<h2> What's Next </h2>
+<ul>
+  <li><a href="/guides/retrieve_message_history.html" class="inline-link"> Retrieving a history of messages from the database</a></li>
+</ul>
+<br>
+
+    </div>
+    <!-- /#page-wrapper -->
+  </div>
+  <!-- /#wrapper -->
+
+  </body>
+
+  <!-- jQuery -->
+<script src="/vendor/jquery/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+<script src="/vendor/scrollreveal/scrollreveal.min.js"></script>
+<script src="/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Theme JavaScript -->
+<script src="/javascripts/creative.js"></script>
+<script src="/javascripts/all.js"></script>
+
+</html>
